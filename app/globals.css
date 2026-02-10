@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* ================= BASE ================= */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #0A0F1A;
+    color: white;
+    overflow-x: hidden;
+}
+
+.section-box {
+    background: rgba(10, 18, 32, 0.75);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(0, 255, 200, 0.12);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(0, 255, 200, 0.05);
+}
+
+
+
+/* ================= MATRIX ================= */
+
+.matrix-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.matrix-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 200vw;
+    /* force full width */
+    font-family: monospace;
+    font-size: 11px;
+    line-height: 16px;
+    white-space: pre;
+    color: rgba(0, 255, 200, 0.10);
+    animation: matrixScroll 140s linear infinite;
+}
+
+@keyframes matrixScroll {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+
+/* ================= GRID ================= */
+
+.cyber-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(0, 255, 200, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 200, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+}
+
+/* ================= MAIN FRAME ================= */
+
+.main-frame {
+    max-width: 1200px;
+    margin: 120px auto 80px auto;
+    padding: 60px;
+    background: rgba(10, 18, 32, 0.75);
+    border-radius: 24px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(0, 255, 200, 0.15);
+    box-shadow: 0 0 60px rgba(0, 255, 200, 0.08);
+}
+
+/* ================= PANEL ================= */
+
+.soc-panel {
+    background: rgba(15, 25, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+.soc-panel:hover {
+    border-color: rgba(0, 255, 200, 0.5);
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ================= TERMINAL CURSOR ================= */
+
+.cursor {
+    display: inline-block;
+    width: 6px;
+    height: 1.1em;
+    background: #00F5D4;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.mouse-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 255, 200, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+}
