@@ -1,7 +1,8 @@
 import "./globals.css"
 import Navbar from "@/components/Navbar"
-import SecurityBackground from "@/components/SecurityBackground"
-import MouseGlow from "@/components/MouseGlow"
+import ClientSecurityBackground from "@/components/ClientSecurityBackground"
+import ClientMouseGlow from "@/components/ClientMouseGlow"
+import { Analytics } from "@vercel/analytics/react"
 
 export default function RootLayout({
   children,
@@ -12,12 +13,20 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative bg-[#0A0F1A] text-white font-sans overflow-x-hidden">
 
-        <SecurityBackground />
-        <MouseGlow />
+        {/* Analytics */}
+        <Analytics />
+
+        {/* Background Layers (CLIENT ONLY) */}
+        <ClientSecurityBackground />
+        <ClientMouseGlow />
+
+        {/* Grid Overlay */}
         <div className="cyber-grid" />
 
+        {/* App Content */}
         <div className="relative z-10">
           <Navbar />
+
           <main className="max-w-6xl mx-auto px-6 pt-28 pb-20">
             {children}
           </main>

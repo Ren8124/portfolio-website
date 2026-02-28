@@ -1,28 +1,55 @@
+import Link from "next/link"
+import { projects } from "@/data/projects"
+
 export default function FeaturedProject() {
     return (
-        <div className="soc-panel space-y-6">
+        <div id="projects" className="space-y-8">
+            {projects.map((project) => (
+                <div key={project.slug} className="soc-panel space-y-4">
 
-            <div className="font-mono text-xs text-emerald-400">
-                &gt; system.project --inspect
-            </div>
+                    {/* TERMINAL HEADER */}
+                    <div className="font-mono text-xs text-emerald-400">
+                        &gt; system.project --inspect
+                    </div>
 
-            <h3 className="text-xl font-semibold">
-                Web Attack Detection & Forensic Logging System
-            </h3>
+                    <h3 className="text-xl font-semibold">
+                        {project.title}
+                    </h3>
 
-            <p className="text-sm text-white/70">
-                Real-time HTTP threat detection system identifying SQL Injection,
-                XSS, phishing, and directory traversal attacks with structured
-                forensic logging.
-            </p>
+                    <p className="text-sm text-white/70">
+                        {project.description}
+                    </p>
 
-            <div className="bg-black/40 p-4 rounded-md text-xs font-mono text-white/60">
-                [DETECTED] SQL Injection Attempt<br />
-                [SOURCE IP] 192.168.0.14<br />
-                [ACTION] Request Blocked<br />
-                [FORENSIC LOG] FLS-2025-0012
-            </div>
+                    {/* UNIQUE PREVIEW LOGS */}
+                    <div className="bg-black/40 border border-emerald-400/20 p-4 rounded-md text-xs font-mono text-emerald-300 space-y-1">
+                        {project.previewLogs.map((line, i) => (
+                            <div key={i}>{line}</div>
+                        ))}
+                    </div>
 
+                    {/* ACTION BUTTONS */}
+                    <div className="flex gap-4 pt-2 text-sm">
+
+                        <Link
+                            href={`/projects/${project.slug}`}
+                            className="text-emerald-400 hover:underline"
+                        >
+                            Read Full Analysis →
+                        </Link>
+
+                        <a
+                            href={project.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white/60 hover:text-white transition"
+                        >
+                            View Repository
+                        </a>
+
+                    </div>
+
+                </div>
+            ))}
         </div>
     )
 }
