@@ -88,11 +88,19 @@ body {
 /* ================= PANEL ================= */
 
 .soc-panel {
-    background: rgba(15, 25, 40, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 20px;
-    transition: 0.3s ease;
+    position: relative;
+    background: rgba(8, 18, 32, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 14px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 0 0 1px rgba(16, 185, 129, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 .soc-panel:hover {

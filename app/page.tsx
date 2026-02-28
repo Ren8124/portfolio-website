@@ -39,9 +39,14 @@ export default function Home() {
 
             {/* PROJECT + EXPERIENCE */}
             <Section id="experience">
-                <div className="grid lg:grid-cols-2 gap-10">
-                    <FeaturedProject />
-                    <Experience />
+                <div className="soc-panel h-full flex flex-col justify-between">
+                    <div className="h-full">
+                        <FeaturedProject />
+                    </div>
+
+                    <div className="h-full">
+                        <Experience />
+                    </div>
                 </div>
             </Section>
 
